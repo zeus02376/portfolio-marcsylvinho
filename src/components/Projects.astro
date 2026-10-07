@@ -80,6 +80,45 @@ const projects = [
 		featured: false,
 	},
 ];
+
+const clientProjects = [
+	{
+		name: "Rainalyse",
+		category: "Client ANANSI",
+		categoryClass: "border-yellow-400/20 bg-yellow-400/10 text-yellow-300",
+		status: "En développement",
+		statusClass: "bg-orange-400/10 text-orange-300",
+		accent: "bg-yellow-400",
+		description:
+			"Plateforme de réservation en ligne pour salons de beauté et coiffure. Gestion des rendez-vous, profils prestataires et paiement en ligne.",
+		tags: ["React", "Node.js", "PostgreSQL", "Réservation"],
+		github: "",
+	},
+	{
+		name: "Laeticia Saveurs",
+		category: "Client ANANSI",
+		categoryClass: "border-yellow-400/20 bg-yellow-400/10 text-yellow-300",
+		status: "En développement",
+		statusClass: "bg-orange-400/10 text-orange-300",
+		accent: "bg-yellow-400",
+		description:
+			"Plateforme de réservation et commande de nourriture africaine en ligne. Menu, commandes, livraison et suivi en temps réel.",
+		tags: ["React", "Express", "PostgreSQL", "E-commerce"],
+		github: "https://github.com/zeus02376/laeticia-saveurs",
+	},
+	{
+		name: "LACADEX",
+		category: "Client ANANSI",
+		categoryClass: "border-yellow-400/20 bg-yellow-400/10 text-yellow-300",
+		status: "En développement",
+		statusClass: "bg-orange-400/10 text-orange-300",
+		accent: "bg-yellow-400",
+		description:
+			"Plateforme e-learning complète avec gestion de cours, suivi des apprenants et certification. Développée pour un client via ANANSI.",
+		tags: ["TypeScript", "React", "Node.js", "E-learning"],
+		github: "https://github.com/zeus02376/lacadex-project",
+	},
+];
 ---
 
 <section
@@ -201,6 +240,107 @@ const projects = [
 				))
 			}
 		</div>
+
+		<div class="mt-16">
+			<header class="mb-8 text-center">
+				<h3 class="text-2xl font-bold text-white sm:text-3xl">
+					🏢 Projets clients — ANANSI
+				</h3>
+				<p class="mt-3 text-gray-400">
+					Développement réalisé pour des clients via ANANSI
+				</p>
+			</header>
+
+			<div class="grid grid-cols-1 gap-5 xl:grid-cols-3">
+				{
+					clientProjects.map((project, index) => (
+						<article
+							data-project-card
+							style={`--stagger-delay: ${(index + projects.length) * 100}ms`}
+							class="project-card group relative overflow-hidden rounded-xl border border-gray-700 bg-gray-800 transition-colors duration-300 hover:-translate-y-1 hover:border-green-500/50"
+						>
+							<div class:list={["h-1 w-full", project.accent]} aria-hidden="true" />
+							<div class="flex h-full flex-col p-5 sm:p-6">
+								<div class="mb-5 flex items-start justify-between gap-3">
+									<span
+										class:list={[
+											"rounded-full border px-3 py-1 text-xs font-medium",
+											project.categoryClass,
+										]}
+									>
+										{project.category}
+									</span>
+									<span
+										class:list={[
+											"shrink-0 rounded-full px-2.5 py-1 text-xs font-medium",
+											project.statusClass,
+										]}
+									>
+										{project.status}
+									</span>
+								</div>
+
+								<h4 class="text-xl font-bold leading-snug text-white">{project.name}</h4>
+								<p class="mt-3 text-sm leading-6 text-gray-400">{project.description}</p>
+
+								<ul
+									class="mt-5 flex flex-wrap gap-2"
+									aria-label={`Technologies : ${project.name}`}
+								>
+									{
+										project.tags.map((tag) => (
+											<li class="rounded-md bg-gray-700 px-2.5 py-1 text-xs text-green-400">
+												{tag}
+											</li>
+										))
+									}
+								</ul>
+
+								<div class="mt-auto flex flex-wrap items-center gap-3 pt-6">
+									{project.github && (
+										<a
+											href={project.github}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-4 py-2 text-sm font-medium text-gray-200 transition-colors hover:border-green-400/60 hover:text-green-400"
+										>
+											<svg
+												aria-hidden="true"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												class="h-4 w-4"
+											>
+												<path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.78 2.5 3.35 1.78.1-.71.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+											</svg>
+											GitHub
+										</a>
+									)}
+									<a
+										href="#contact"
+										class="inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-2 text-sm font-medium text-gray-200 transition-colors hover:bg-green-500 hover:text-gray-950"
+									>
+										En savoir plus <span aria-hidden="true">→</span>
+									</a>
+								</div>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+
+		<aside class="mx-auto mt-16 max-w-2xl text-center">
+			<p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
+				Partenariat
+			</p>
+			<p class="leading-7 text-gray-300">
+				Je collabore avec Mbe Signe Romuald, développeur full-stack et étudiant ingénieur.
+				Portfolio bientôt disponible.
+			</p>
+			<span class="mt-4 inline-flex rounded-full border border-gray-700 bg-gray-800 px-3 py-1 text-xs text-gray-400">
+				Lien à venir
+			</span>
+		</aside>
 	</div>
 </section>
 
