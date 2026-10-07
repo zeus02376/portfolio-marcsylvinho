@@ -1,0 +1,153 @@
+---
+const socialLinks = [
+	{
+		label: "GitHub",
+		href: "https://github.com/zeus02376",
+		icon: "github",
+	},
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/marc-sylvinho-tsafack-lekeudjio-87183a3a8/",
+		icon: "linkedin",
+	},
+	{
+		label: "TryHackMe",
+		href: "https://tryhackme.com/p/zeusmarc54",
+		icon: "tryhackme",
+	},
+];
+---
+
+<section
+	id="accueil"
+	aria-labelledby="hero-title"
+	class="hero-background flex min-h-screen items-center justify-center bg-gray-950 px-4 pb-12 pt-24 sm:px-6"
+>
+	<div class="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+		<p
+			class="reveal reveal-delay-1 mb-7 inline-flex items-center gap-2 rounded-full border border-green-400/25 bg-green-400/5 px-4 py-2 text-xs font-medium text-green-300 sm:text-sm"
+		>
+			<span class="h-2 w-2 animate-pulse rounded-full bg-green-400" aria-hidden="true"></span>
+			Disponible pour alternance <span aria-hidden="true">•</span> Sep. 2026
+		</p>
+
+		<h1 id="hero-title" class="reveal reveal-delay-2 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+			<span class="block text-white">Bonjour, je suis</span>
+			<span
+				class="mt-2 block bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-5xl font-bold text-transparent sm:text-6xl md:text-7xl"
+			>
+				Marc Sylvinho Tsafack
+			</span>
+		</h1>
+
+		<p class="reveal reveal-delay-3 mt-6 text-base font-medium text-gray-300 sm:text-lg">
+			Étudiant Ingénieur Cybersécurité <span class="text-green-400">|</span> ESAIP Angers
+		</p>
+
+		<p class="reveal reveal-delay-4 mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
+			SOC Analyst · Jr Pentester · Fondateur de ANANSI<br class="hidden sm:block" />
+			Passionné par la sécurité offensive et défensive
+		</p>
+
+		<div class="reveal reveal-delay-5 mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+			<a
+				href="#projets"
+				class="inline-flex items-center justify-center gap-2 rounded-lg bg-green-500 px-6 py-3 font-semibold text-gray-950 transition-colors hover:bg-green-600"
+			>
+				Voir mes projets <span aria-hidden="true">→</span>
+			</a>
+			<a
+				href="#contact"
+				class="inline-flex items-center justify-center rounded-lg border border-green-400/60 px-6 py-3 font-semibold text-green-400 transition-colors hover:bg-green-400/10"
+			>
+				Me contacter
+			</a>
+		</div>
+
+		<nav aria-label="Réseaux sociaux" class="reveal reveal-delay-6 mt-10 flex items-center gap-6">
+			{
+				socialLinks.map(({ label, href, icon }) => (
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={label}
+						class="text-gray-400 transition-colors hover:text-green-400"
+					>
+						{icon === "github" && (
+							<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+								<path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.78 2.5 3.35 1.78.1-.71.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+							</svg>
+						)}
+						{icon === "linkedin" && (
+							<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+								<path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.34H4.98V9.4h2.95v8.94ZM6.45 8.18a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.03 10.16h-2.94v-4.35c0-1.04-.02-2.38-1.45-2.38-1.45 0-1.67 1.13-1.67 2.3v4.43H9.48V9.4h2.82v1.22h.04c.39-.7 1.35-1.45 2.78-1.45 2.98 0 3.53 1.96 3.53 4.5v4.67h-.17Z" />
+							</svg>
+						)}
+						{icon === "tryhackme" && (
+							<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+								<path d="M12 2 2.5 7.5v9L12 22l9.5-5.5v-9L12 2Zm0 2.3 7.2 4.2v7L12 19.7l-7.2-4.2v-7L12 4.3Zm-.9 3.1v4.1H8.2v2h2.9v4.1h2v-4.1H16v-2h-2.9V7.4h-2Z" />
+							</svg>
+						)}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</section>
+
+<style>
+	.hero-background {
+		background-image:
+			radial-gradient(ellipse at center, rgb(34 197 94 / 0.09), transparent 55%),
+			linear-gradient(rgb(148 163 184 / 0.035) 1px, transparent 1px),
+			linear-gradient(90deg, rgb(148 163 184 / 0.035) 1px, transparent 1px);
+		background-size: auto, 48px 48px, 48px 48px;
+	}
+
+	.reveal {
+		animation: fade-slide-up 700ms ease-out both;
+	}
+
+	.reveal-delay-1 {
+		animation-delay: 100ms;
+	}
+
+	.reveal-delay-2 {
+		animation-delay: 200ms;
+	}
+
+	.reveal-delay-3 {
+		animation-delay: 300ms;
+	}
+
+	.reveal-delay-4 {
+		animation-delay: 400ms;
+	}
+
+	.reveal-delay-5 {
+		animation-delay: 500ms;
+	}
+
+	.reveal-delay-6 {
+		animation-delay: 600ms;
+	}
+
+	@keyframes fade-slide-up {
+		from {
+			opacity: 0;
+			transform: translateY(1rem);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal {
+			animation: none;
+		}
+	}
+</style>

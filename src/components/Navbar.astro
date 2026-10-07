@@ -1,0 +1,136 @@
+---
+const links = [
+	{ href: "#accueil", fr: "Accueil", en: "Home" },
+	{ href: "#a-propos", fr: "À propos", en: "About" },
+	{ href: "#competences", fr: "Compétences", en: "Skills" },
+	{ href: "#projets", fr: "Projets", en: "Projects" },
+	{ href: "#certifications", fr: "Certifications", en: "Certifications" },
+	{ href: "#contact", fr: "Contact", en: "Contact" },
+];
+---
+
+<header
+	data-navbar
+	class="fixed inset-x-0 top-0 z-50 h-16 border-b border-gray-800/50 bg-transparent transition-colors duration-300"
+>
+	<nav
+		aria-label="Navigation principale"
+		class="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+	>
+		<a href="#accueil" class="flex items-center gap-2" aria-label="Marc Sylvinho, accueil">
+			<span class="relative text-2xl font-bold text-green-400">
+				MS
+				<span class="absolute -right-2 top-0.5 h-2 w-2 animate-pulse rounded-full bg-green-400"></span>
+				<span class="mt-0.5 block text-[10px] font-normal leading-none text-gray-400">
+					Marc Sylvinho
+				</span>
+			</span>
+		</a>
+
+		<div class="flex items-center gap-4">
+			<div data-desktop-links class="hidden items-center gap-6 md:flex">
+				{
+					links.map((link) => (
+						<a
+							href={link.href}
+							data-fr={link.fr}
+							data-en={link.en}
+							class="text-sm text-gray-400 transition-colors hover:text-green-400"
+						>
+							{link.fr}
+						</a>
+					))
+				}
+			</div>
+
+			<button
+				type="button"
+				data-language-toggle
+				class="rounded border border-green-400/40 px-2.5 py-1 text-xs font-medium text-green-400 transition-colors hover:border-green-400 hover:bg-green-400/10"
+				aria-label="Switch language to English"
+			>
+				EN
+			</button>
+
+			<button
+				type="button"
+				data-menu-toggle
+				class="text-2xl leading-none text-gray-300 transition-colors hover:text-green-400 md:hidden"
+				aria-label="Ouvrir le menu"
+				aria-expanded="false"
+				aria-controls="mobile-navigation"
+			>
+				☰
+			</button>
+		</div>
+	</nav>
+
+	<div
+		id="mobile-navigation"
+		data-mobile-menu
+		class="absolute inset-x-0 top-16 hidden border-b border-gray-800/50 bg-gray-900/95 px-4 py-3 backdrop-blur-md md:hidden"
+	>
+		<div class="mx-auto flex max-w-7xl flex-col gap-1">
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						data-fr={link.fr}
+						data-en={link.en}
+						class="rounded px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-gray-800/60 hover:text-green-400"
+					>
+						{link.fr}
+					</a>
+				))
+			}
+		</div>
+	</div>
+</header>
+
+<script>
+	const navbar = document.querySelector<HTMLElement>("[data-navbar]");
+	const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+	const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+	const languageToggle = document.querySelector<HTMLButtonElement>("[data-language-toggle]");
+	let currentLanguage = "fr";
+
+	window.addEventListener("scroll", () => {
+		if (!navbar) return;
+
+		navbar.classList.toggle("bg-gray-900/95", window.scrollY > 0);
+		navbar.classList.toggle("backdrop-blur-md", window.scrollY > 0);
+	});
+
+	menuToggle?.addEventListener("click", () => {
+		if (!mobileMenu) return;
+
+		const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+		mobileMenu.classList.toggle("hidden", isExpanded);
+		menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+		menuToggle.setAttribute("aria-label", isExpanded ? "Ouvrir le menu" : "Fermer le menu");
+	});
+
+	mobileMenu?.querySelectorAll("a").forEach((link) => {
+		link.addEventListener("click", () => {
+			mobileMenu.classList.add("hidden");
+			menuToggle?.setAttribute("aria-expanded", "false");
+			menuToggle?.setAttribute("aria-label", "Ouvrir le menu");
+		});
+	});
+
+	languageToggle?.addEventListener("click", () => {
+		currentLanguage = currentLanguage === "fr" ? "en" : "fr";
+		document.documentElement.lang = currentLanguage;
+
+		document.querySelectorAll<HTMLElement>("[data-fr][data-en]").forEach((element) => {
+			element.textContent =
+				currentLanguage === "fr" ? element.dataset.fr ?? "" : element.dataset.en ?? "";
+		});
+
+		languageToggle.textContent = currentLanguage === "fr" ? "EN" : "FR";
+		languageToggle.setAttribute(
+			"aria-label",
+			currentLanguage === "fr" ? "Switch language to English" : "Passer en français",
+		);
+	});
+</script>

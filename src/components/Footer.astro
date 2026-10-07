@@ -1,0 +1,90 @@
+---
+const socialLinks = [
+	{
+		label: "GitHub",
+		href: "https://github.com/zeus02376",
+		icon: "github",
+	},
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/marc-sylvinho-tsafack-lekeudjio-87183a3a8/",
+		icon: "linkedin",
+	},
+	{
+		label: "TryHackMe",
+		href: "https://tryhackme.com/p/zeusmarc54",
+		icon: "tryhackme",
+	},
+];
+
+const quickLinks = [
+	{ label: "Accueil", href: "#accueil" },
+	{ label: "À propos", href: "#a-propos" },
+	{ label: "Projets", href: "#projets" },
+	{ label: "Contact", href: "#contact" },
+];
+---
+
+<footer class="border-t border-gray-800 bg-gray-950 px-6 py-8">
+	<div
+		class="mx-auto flex max-w-6xl flex-col items-center gap-7 text-center md:flex-row md:justify-between md:gap-6 md:text-left"
+	>
+		<div>
+			<a href="#accueil" class="inline-flex items-center gap-2" aria-label="Retour à l'accueil">
+				<span class="text-xl font-bold text-green-400">MS</span>
+				<span class="font-semibold text-white">Tsafack Lekeudjio Marc Sylvinho</span>
+			</a>
+			<p class="mt-1 text-sm text-gray-400">
+				Étudiant Ingénieur Cybersécurité — ESAIP Angers
+			</p>
+		</div>
+
+		<nav aria-label="Liens rapides" class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+			{
+				quickLinks.map(({ label, href }) => (
+					<a
+						href={href}
+						class="text-sm text-gray-400 transition-colors hover:text-green-400"
+					>
+						{label}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="flex flex-col items-center gap-3 md:items-end">
+			<nav aria-label="Réseaux sociaux" class="flex items-center gap-4">
+				{
+					socialLinks.map(({ label, href, icon }) => (
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={label}
+							class="text-gray-400 transition-colors hover:text-green-400"
+						>
+							{icon === "github" && (
+								<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+									<path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.78 2.5 3.35 1.78.1-.71.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+								</svg>
+							)}
+							{icon === "linkedin" && (
+								<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+									<path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.34H4.98V9.4h2.95v8.94ZM6.45 8.18a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.03 10.16h-2.94v-4.35c0-1.04-.02-2.38-1.45-2.38-1.45 0-1.67 1.13-1.67 2.3v4.43H9.48V9.4h2.82v1.22h.04c.39-.7 1.35-1.45 2.78-1.45 2.98 0 3.53 1.96 3.53 4.5v4.67h-.17Z" />
+								</svg>
+							)}
+							{icon === "tryhackme" && (
+								<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+									<path d="M12 2 2.5 7.5v9L12 22l9.5-5.5v-9L12 2Zm0 2.3 7.2 4.2v7L12 19.7l-7.2-4.2v-7L12 4.3Zm-.9 3.1v4.1H8.2v2h2.9v4.1h2v-4.1H16v-2h-2.9V7.4h-2Z" />
+								</svg>
+							)}
+						</a>
+					))
+				}
+			</nav>
+			<p class="text-xs text-gray-500">
+				© 2026 Tsafack Lekeudjio Marc Sylvinho. Tous droits réservés.
+			</p>
+		</div>
+	</div>
+</footer>
