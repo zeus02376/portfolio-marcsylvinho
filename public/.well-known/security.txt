@@ -4,4 +4,4 @@ Expires: 2027-10-07T00:00:00.000Z
 Preferred-Languages: fr, en
 Canonical: https://portfolio-marcsylvinho.pages.dev/.well-known/security.txt
 Policy: https://portfolio-marcsylvinho.pages.dev/security
-Hiring: Oui — étudiant ingénieur cybersécurité disponible en alternance septembre 2026
+Hiring: Oui - Etudiant ingenieur cybersecurite disponible en alternance septembre 2026
