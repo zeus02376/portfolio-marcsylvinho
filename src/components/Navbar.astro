@@ -110,6 +110,12 @@ const links = [
 			about_btn_cv: "Télécharger mon CV",
 			about_btn_projects: "Voir mes projets",
 			about_skills_title: "Compétences clés",
+			about_p1:
+				"Étudiant en cycle ingénieur Bac+5 à l'ESAIP Angers (réseau La Salle), j'ai un profil orienté Cybersécurité & Réseaux, avec de solides compétences en développement comme levier technique. Mon parcours a commencé au Cameroun avec un Bachelor en Informatique à l'IUC Douala, avant de rejoindre la France pour approfondir mes compétences en sécurité offensive et défensive.",
+			about_p2:
+				"En stage au Collège Mongazon, je développe une plateforme pédagogique fullstack (React, Express 5, PostgreSQL) tout en menant un pentest complet OWASP Top 10 — 9 vulnérabilités identifiées et corrigées. J'ai également effectué un Erasmus à la Gebze Technical University en Turquie, où j'ai travaillé sur SmishGuard, un outil de détection de phishing par NLP.",
+			about_p3:
+				"En parallèle de mes études, je construis ANANSI, un projet entrepreneurial en cybersécurité que je développe progressivement. Certifié SOC Analyst et Jr Penetration Tester sur TryHackMe, je pratique régulièrement les CTF et contribue à des projets open source.",
 			skills_label: "Mes compétences",
 			skills_title: "Ce que je sais faire",
 			skills_subtitle: "Cybersécurité en priorité, développement en support",
@@ -164,6 +170,12 @@ const links = [
 			about_btn_cv: "Download my CV",
 			about_btn_projects: "View my projects",
 			about_skills_title: "Key skills",
+			about_p1:
+				"Engineering student (Bac+5) at ESAIP Angers (La Salle network), I have a profile focused on Cybersecurity & Networks, with solid development skills as a technical lever. My journey started in Cameroon with a Bachelor's in Computer Science at IUC Douala, before coming to France to deepen my skills in offensive and defensive security.",
+			about_p2:
+				"During my internship at Collège Mongazon, I am developing a fullstack pedagogical platform (React, Express 5, PostgreSQL) while conducting a complete OWASP Top 10 pentest — 9 vulnerabilities identified and fixed. I also completed an Erasmus at Gebze Technical University in Turkey, where I worked on SmishGuard, an NLP-based phishing detection tool.",
+			about_p3:
+				"Alongside my studies, I am building ANANSI, an entrepreneurial cybersecurity project I am developing progressively. Certified SOC Analyst and Jr Penetration Tester on TryHackMe, I regularly practice CTFs and contribute to open source projects.",
 			skills_label: "My skills",
 			skills_title: "What I can do",
 			skills_subtitle: "Cybersecurity first, development as support",
@@ -209,7 +221,8 @@ const links = [
 		document.documentElement.lang = lang;
 
 		const toggle = document.getElementById("lang-toggle");
-		if (toggle) toggle.textContent = lang === "fr" ? "EN" : "FR";
+		const targetLang = lang === "fr" ? "EN" : "FR";
+		if (toggle) toggle.textContent = targetLang;
 	}
 
 	const savedLang = localStorage.getItem("lang") === "en" ? "en" : "fr";
