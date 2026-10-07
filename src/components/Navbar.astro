@@ -1,11 +1,11 @@
 ---
 const links = [
-	{ href: "#accueil", fr: "Accueil", en: "Home" },
-	{ href: "#a-propos", fr: "À propos", en: "About" },
-	{ href: "#competences", fr: "Compétences", en: "Skills" },
-	{ href: "#projets", fr: "Projets", en: "Projects" },
-	{ href: "#certifications", fr: "Certifications", en: "Certifications" },
-	{ href: "#contact", fr: "Contact", en: "Contact" },
+	{ href: "#accueil", key: "nav_home", label: "Accueil" },
+	{ href: "#a-propos", key: "nav_about", label: "À propos" },
+	{ href: "#competences", key: "nav_skills", label: "Compétences" },
+	{ href: "#projets", key: "nav_projects", label: "Projets" },
+	{ href: "#certifications", key: "nav_certifications", label: "Certifications" },
+	{ href: "#contact", key: "nav_contact", label: "Contact" },
 ];
 ---
 
@@ -33,11 +33,10 @@ const links = [
 					links.map((link) => (
 						<a
 							href={link.href}
-							data-fr={link.fr}
-							data-en={link.en}
+							data-i18n={link.key}
 							class="text-sm text-gray-400 transition-colors hover:text-green-400"
 						>
-							{link.fr}
+							{link.label}
 						</a>
 					))
 				}
@@ -46,6 +45,7 @@ const links = [
 			<button
 				type="button"
 				data-language-toggle
+				id="lang-toggle"
 				class="rounded border border-green-400/40 px-2.5 py-1 text-xs font-medium text-green-400 transition-colors hover:border-green-400 hover:bg-green-400/10"
 				aria-label="Switch language to English"
 			>
@@ -75,11 +75,10 @@ const links = [
 				links.map((link) => (
 					<a
 						href={link.href}
-						data-fr={link.fr}
-						data-en={link.en}
+						data-i18n={link.key}
 						class="rounded px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-gray-800/60 hover:text-green-400"
 					>
-						{link.fr}
+						{link.label}
 					</a>
 				))
 			}
@@ -88,11 +87,46 @@ const links = [
 </header>
 
 <script>
-	const navbar = document.querySelector<HTMLElement>("[data-navbar]");
+	const translations: Record<"fr" | "en", Record<string, string>> = {
+		fr: {
+			nav_home: "Accueil",
+			nav_about: "À propos",
+			nav_skills: "Compétences",
+			nav_projects: "Projets",
+			nav_certifications: "Certifications",
+			nav_contact: "Contact",
+		},
+		en: {
+			nav_home: "Home",
+			nav_about: "About",
+			nav_skills: "Skills",
+			nav_projects: "Projects",
+			nav_certifications: "Certifications",
+			nav_contact: "Contact",
+		},
+	};
+
+	function applyLang(lang: "fr" | "en") {
+		document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((element) => {
+			const key = element.getAttribute("data-i18n");
+			if (key && translations[lang][key]) {
+				element.textContent = translations[lang][key];
+			}
+		});
+		localStorage.setItem("lang", lang);
+		document.documentElement.lang = lang;
+
+		const toggle = document.getElementById("lang-toggle");
+		if (toggle) toggle.textContent = lang === "fr" ? "EN" : "FR";
+	}
+
+	const savedLang = localStorage.getItem("lang") === "en" ? "en" : "fr";
+	applyLang(savedLang);
+
 	const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
 	const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
-	const languageToggle = document.querySelector<HTMLButtonElement>("[data-language-toggle]");
-	let currentLanguage = "fr";
+	const languageToggle = document.getElementById("lang-toggle");
+	const navbar = document.querySelector<HTMLElement>("[data-navbar]");
 
 	window.addEventListener("scroll", () => {
 		if (!navbar) return;
@@ -119,18 +153,8 @@ const links = [
 	});
 
 	languageToggle?.addEventListener("click", () => {
-		currentLanguage = currentLanguage === "fr" ? "en" : "fr";
-		document.documentElement.lang = currentLanguage;
-
-		document.querySelectorAll<HTMLElement>("[data-fr][data-en]").forEach((element) => {
-			element.textContent =
-				currentLanguage === "fr" ? element.dataset.fr ?? "" : element.dataset.en ?? "";
-		});
-
-		languageToggle.textContent = currentLanguage === "fr" ? "EN" : "FR";
-		languageToggle.setAttribute(
-			"aria-label",
-			currentLanguage === "fr" ? "Switch language to English" : "Passer en français",
-		);
+		const current = localStorage.getItem("lang") === "en" ? "en" : "fr";
+		applyLang(current === "fr" ? "en" : "fr");
+		window.location.reload();
 	});
 </script>

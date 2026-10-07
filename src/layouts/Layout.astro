@@ -1,20 +1,23 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+import { type Lang } from "../i18n/translations";
 
 interface Props {
 	title: string;
 	description?: string;
+	lang?: Lang;
 }
 
 const {
 	title,
 	description = "Portfolio professionnel de Marc Sylvinho.",
+	lang = "fr",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
