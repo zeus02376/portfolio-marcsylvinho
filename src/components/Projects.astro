@@ -129,13 +129,13 @@ const clientProjects = [
 >
 	<div class="mx-auto max-w-6xl">
 		<header class="mb-12 text-center">
-			<p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
+			<p data-i18n="projects_label" class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
 				Mes projets
 			</p>
-			<h2 id="projects-title" class="text-3xl font-bold text-white sm:text-4xl">
+			<h2 data-i18n="projects_title" id="projects-title" class="text-3xl font-bold text-white sm:text-4xl">
 				Ce que j'ai construit
 			</h2>
-			<p class="mt-4 text-gray-400">
+			<p data-i18n="projects_subtitle" class="mt-4 text-gray-400">
 				Projets académiques, professionnels et personnels
 			</p>
 		</header>
@@ -244,9 +244,9 @@ const clientProjects = [
 		<div class="mt-16">
 			<header class="mb-8 text-center">
 				<h3 class="text-2xl font-bold text-white sm:text-3xl">
-					🏢 Projets clients — ANANSI
+					<span aria-hidden="true">🏢 </span><span data-i18n="projects_anansi_title">Projets clients — ANANSI</span>
 				</h3>
-				<p class="mt-3 text-gray-400">
+				<p data-i18n="projects_anansi_subtitle" class="mt-3 text-gray-400">
 					Développement réalisé pour des clients via ANANSI
 				</p>
 			</header>
@@ -333,7 +333,7 @@ const clientProjects = [
 			class="mt-12 rounded-xl border border-green-500/30 bg-gradient-to-r from-gray-900 to-gray-800 p-10 transition-colors duration-300 hover:border-green-500/60"
 		>
 			<div class="mx-auto max-w-4xl text-center">
-				<h3 class="text-3xl font-bold text-white sm:text-4xl">
+				<h3 data-i18n="projects_cta_title" class="text-3xl font-bold text-white sm:text-4xl">
 					Vous avez un projet ? Parlons-en.
 				</h3>
 				<p class="mx-auto mt-3 max-w-2xl text-gray-400">
@@ -380,14 +380,16 @@ const clientProjects = [
 					href="#contact"
 					class="mt-8 inline-flex items-center justify-center rounded-lg bg-green-500 px-8 py-3 font-bold text-black transition-colors hover:bg-green-600"
 				>
-					Contactez-nous pour votre projet <span aria-hidden="true" class="ml-2">→</span>
+					<span data-i18n="projects_cta_btn">Contactez-nous pour votre projet →</span>
 				</a>
-				<p class="mt-3 text-sm text-gray-500">Réponse sous 24h · Devis gratuit</p>
+				<p data-i18n="projects_cta_note" class="mt-3 text-sm text-gray-500">
+					Réponse sous 24h · Devis gratuit
+				</p>
 			</div>
 		</aside>
 
 		<aside class="mx-auto mt-16 max-w-2xl text-center">
-			<p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
+			<p data-i18n="partner_label" class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
 				Partenariat
 			</p>
 			<p class="leading-7 text-gray-300">
@@ -397,6 +399,7 @@ const clientProjects = [
 				href="https://romuald-mbe-signe.pages.dev/"
 				target="_blank"
 				rel="noopener noreferrer"
+				data-i18n="partner_btn"
 				class="mt-4 inline-flex items-center rounded-lg border border-green-400/60 px-6 py-2 text-green-400 transition-colors hover:bg-green-400/10"
 			>
 				Voir son portfolio →

@@ -1,8 +1,8 @@
 ---
 const stats = [
-	{ value: "3+", label: "Années d'expérience" },
-	{ value: "2", label: "Certifications TryHackMe" },
-	{ value: "5+", label: "Projets livrés" },
+	{ value: "3+", label: "Années d'expérience", key: "about_stat1" },
+	{ value: "2", label: "Certifications TryHackMe", key: "about_stat2" },
+	{ value: "5+", label: "Projets livrés", key: "about_stat3" },
 ];
 
 const skills = [
@@ -39,10 +39,10 @@ const skills = [
 
 			<div class="mt-5 grid grid-cols-3 gap-3">
 				{
-					stats.map(({ value, label }) => (
+					stats.map(({ value, label, key }) => (
 						<div class="rounded-xl border border-gray-800 bg-gray-950/60 px-3 py-4 text-center">
 							<p class="text-2xl font-bold text-green-400 sm:text-3xl">{value}</p>
-							<p class="mt-1 text-xs leading-5 text-gray-400">{label}</p>
+							<p data-i18n={key} class="mt-1 text-xs leading-5 text-gray-400">{label}</p>
 						</div>
 					))
 				}
@@ -51,10 +51,10 @@ const skills = [
 
 		<div data-about-reveal="right" class="md:col-span-7">
 			<p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-green-400">
-				À propos de moi
+				<span data-i18n="about_label">À propos de moi</span>
 			</p>
 			<h2 id="about-title" class="text-3xl font-bold leading-tight text-white sm:text-4xl">
-				Cybersécurité, Réseaux &amp; Innovation
+				<span data-i18n="about_title">Cybersécurité, Réseaux &amp; Innovation</span>
 			</h2>
 
 			<div class="mt-6 space-y-4 text-sm leading-7 text-gray-400 sm:text-base">
@@ -94,10 +94,11 @@ const skills = [
 							stroke-linecap="round"
 							stroke-linejoin="round"></path>
 					</svg>
-					Télécharger mon CV
+					<span data-i18n="about_btn_cv">Télécharger mon CV</span>
 				</a>
 				<a
 					href="#projets"
+					data-i18n="about_btn_projects"
 					class="inline-flex items-center justify-center rounded-lg border border-green-400/60 px-5 py-3 font-semibold text-green-400 transition-colors hover:bg-green-400/10"
 				>
 					Voir mes projets
@@ -105,7 +106,9 @@ const skills = [
 			</div>
 
 			<div class="mt-8">
-				<h3 class="mb-3 text-sm font-semibold text-gray-300">Compétences clés</h3>
+				<h3 data-i18n="about_skills_title" class="mb-3 text-sm font-semibold text-gray-300">
+					Compétences clés
+				</h3>
 				<ul class="flex flex-wrap gap-2" aria-label="Compétences clés">
 					{
 						skills.map((skill) => (
