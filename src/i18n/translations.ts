@@ -9,10 +9,10 @@ export const translations = {
 		nav_contact: "Contact",
 
 		// Hero
-		hero_badge: "Disponible pour alternance • Sep. 2026",
+		hero_badge: "Disponible en alternance · Septembre 2026",
 		hero_greeting: "Bonjour, je suis",
 		hero_name: "Marc Sylvinho Tsafack",
-		hero_subtitle: "Étudiant Ingénieur Cybersécurité | ESAIP Angers",
+		hero_subtitle: "Étudiant Ingénieur IR3 — Cybersécurité & Réseaux — ESAIP Angers",
 		hero_description: "SOC Analyst · Jr Pentester · Fondateur de ANANSI",
 		hero_description2: "Passionné par la sécurité offensive et défensive",
 		hero_btn_projects: "Voir mes projets",
@@ -27,6 +27,8 @@ export const translations = {
 		about_btn_cv: "Télécharger mon CV",
 		about_btn_projects: "Voir mes projets",
 		about_skills_title: "Compétences clés",
+		about_p1:
+			"Titulaire d'un Bachelor Cybersécurité (ESAIP Angers), je rejoins le cycle Ingénieur IRA (Informatique Réseaux Applications) en IR3 à l'ESAIP Angers en septembre 2026.",
 
 		// Skills
 		skills_label: "Mes compétences",
@@ -57,7 +59,7 @@ export const translations = {
 		contact_title: "Travaillons ensemble",
 		contact_subtitle: "Alternance, projet cybersécurité ou simple échange — je réponds sous 24h",
 		contact_direct: "Me contacter directement",
-		contact_availability: "Disponible pour alternance — Septembre 2026",
+		contact_availability: "Disponible en alternance · Septembre 2026",
 		contact_domains: "Domaines : Cybersécurité, Réseaux, SecOps",
 		contact_whatsapp_title: "Contactez ANANSI sur WhatsApp",
 		contact_whatsapp_note: "Réponse rapide garantie · Devis gratuit",
@@ -70,7 +72,7 @@ export const translations = {
 		contact_reply: "Je réponds généralement sous 24h",
 
 		// Footer
-		footer_role: "Étudiant Ingénieur Cybersécurité — ESAIP Angers",
+		footer_role: "Étudiant Ingénieur IR3 — Cybersécurité & Réseaux — ESAIP Angers",
 		footer_rights: "Tous droits réservés.",
 		partner_label: "Partenariat",
 		partner_text:
@@ -88,10 +90,10 @@ export const translations = {
 		nav_contact: "Contact",
 
 		// Hero
-		hero_badge: "Available for apprenticeship • Sep. 2026",
+		hero_badge: "Available for apprenticeship · September 2026",
 		hero_greeting: "Hello, I am",
 		hero_name: "Marc Sylvinho Tsafack",
-		hero_subtitle: "Cybersecurity Engineering Student | ESAIP Angers",
+		hero_subtitle: "IR3 Engineering Student — Cybersecurity & Networks — ESAIP Angers",
 		hero_description: "SOC Analyst · Jr Pentester · Founder of ANANSI",
 		hero_description2: "Passionate about offensive and defensive security",
 		hero_btn_projects: "View my projects",
@@ -106,6 +108,8 @@ export const translations = {
 		about_btn_cv: "Download my CV",
 		about_btn_projects: "View my projects",
 		about_skills_title: "Key skills",
+		about_p1:
+			"Holding a Bachelor's in Cybersecurity (ESAIP Angers), I am joining the Engineering cycle IRA (Networks & Applications) at IR3 level at ESAIP Angers in September 2026.",
 
 		// Skills
 		skills_label: "My skills",
@@ -150,7 +154,7 @@ export const translations = {
 		contact_reply: "I usually reply within 24h",
 
 		// Footer
-		footer_role: "Cybersecurity Engineering Student — ESAIP Angers",
+		footer_role: "IR3 Engineering Student — Cybersecurity & Networks — ESAIP Angers",
 		footer_rights: "All rights reserved.",
 		partner_label: "Partnership",
 		partner_text:
