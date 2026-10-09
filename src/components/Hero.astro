@@ -42,20 +42,48 @@ const socialLinks = [
 
 		<p class="reveal reveal-delay-3 mt-6 text-base font-medium text-gray-300 sm:text-lg">
 			<span data-i18n="hero_subtitle">
-				Étudiant Ingénieur IR3 — Cybersécurité &amp; Réseaux — ESAIP Angers
+				Futur Ingénieur Cybersécurité &amp; Réseaux — ESAIP Angers (IR3)
 			</span>
 		</p>
 
 		<p class="reveal reveal-delay-4 mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
 			<span data-i18n="hero_description">
-				SOC Analyst · Jr Pentester · Fondateur de ANANSI
+				Analyste SOC · Pentester Junior · Fondateur d'ANANSI
 			</span><br class="hidden sm:block" />
 			<span data-i18n="hero_description2">
-				Passionné par la sécurité offensive et défensive
+				Alternance recherchée · Rythme 3 semaines entreprise / 1 semaine école
 			</span>
 		</p>
 
-		<div class="reveal reveal-delay-5 mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+		<div class="reveal reveal-delay-5 mt-6 flex flex-wrap justify-center gap-2">
+			<a
+				href="https://tryhackme.com/p/zeusmarc54"
+				target="_blank"
+				rel="noopener noreferrer"
+				data-i18n="hero_proof_tryhackme"
+				class="rounded-full border border-green-400/30 bg-gray-900/80 px-3 py-2 text-xs text-gray-300 transition-all hover:border-green-400/70 hover:text-green-200 hover:shadow-[0_0_18px_rgb(34_197_94_/_0.2)]"
+			>
+				🔐 TryHackMe — SOC Level 1 + Jr Pentester
+			</a>
+			<a
+				href="https://github.com/zeus02376"
+				target="_blank"
+				rel="noopener noreferrer"
+				data-i18n="hero_proof_github"
+				class="rounded-full border border-green-400/30 bg-gray-900/80 px-3 py-2 text-xs text-gray-300 transition-all hover:border-green-400/70 hover:text-green-200 hover:shadow-[0_0_18px_rgb(34_197_94_/_0.2)]"
+			>
+				💻 GitHub — 4 projets publics
+			</a>
+			<a
+				href="#projets"
+				data-i18n="hero_proof_anansi"
+				class="rounded-full border border-green-400/30 bg-gray-900/80 px-3 py-2 text-xs text-gray-300 transition-all hover:border-green-400/70 hover:text-green-200 hover:shadow-[0_0_18px_rgb(34_197_94_/_0.2)]"
+			>
+				🏢 ANANSI — 3 missions clients
+			</a>
+		</div>
+
+		<div class="reveal reveal-delay-6 mt-8 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
 			<a
 				href="#projets"
 				data-i18n="hero_btn_projects"
@@ -72,7 +100,7 @@ const socialLinks = [
 			</a>
 		</div>
 
-		<nav aria-label="Réseaux sociaux" class="reveal reveal-delay-6 mt-10 flex items-center gap-6">
+		<nav aria-label="Réseaux sociaux" class="reveal reveal-delay-7 mt-10 flex items-center gap-6">
 			{
 				socialLinks.map(({ label, href, icon }) => (
 					<a
@@ -139,6 +167,10 @@ const socialLinks = [
 
 	.reveal-delay-6 {
 		animation-delay: 600ms;
+	}
+
+	.reveal-delay-7 {
+		animation-delay: 700ms;
 	}
 
 	@keyframes fade-slide-up {
