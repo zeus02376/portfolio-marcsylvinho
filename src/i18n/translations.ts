@@ -28,7 +28,7 @@ export const translations = {
 		about_btn_projects: "Voir mes projets",
 		about_skills_title: "Compétences clés",
 		about_p1:
-			"Titulaire d'un Bachelor Cybersécurité (ESAIP Angers), je rejoins le cycle Ingénieur IRA (Informatique Réseaux Applications) en IR3 à l'ESAIP Angers en septembre 2026.",
+			"Étudiant ingénieur en Cybersécurité & Réseaux à l'ESAIP Angers (réseau La Salle), j'intègre le cycle Ingénieur IRA en IR3 en septembre 2026, après avoir validé mon Bachelor Cybersécurité dans la même école.",
 
 		// Skills
 		skills_label: "Mes compétences",
@@ -109,7 +109,7 @@ export const translations = {
 		about_btn_projects: "View my projects",
 		about_skills_title: "Key skills",
 		about_p1:
-			"Holding a Bachelor's in Cybersecurity (ESAIP Angers), I am joining the Engineering cycle IRA (Networks & Applications) at IR3 level at ESAIP Angers in September 2026.",
+			"Engineering student in Cybersecurity & Networks at ESAIP Angers (La Salle network), I am joining the IRA Engineering cycle at IR3 level in September 2026, after completing my Bachelor's in Cybersecurity at the same school.",
 
 		// Skills
 		skills_label: "My skills",
