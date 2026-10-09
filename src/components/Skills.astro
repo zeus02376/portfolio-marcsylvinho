@@ -1,73 +1,94 @@
 ---
 const categories = [
 	{
-		title: "Cybersécurité",
+		title: "Cybersécurité Défensive / SOC",
+		titleKey: "skills_domain_defensive",
 		icon: "🔐",
-		accent: true,
 		skills: [
-			{ name: "Pentest Web (OWASP Top 10)", level: 80 },
-			{ name: "SOC & Blue Team", level: 75 },
-			{ name: "Analyse réseau (Wireshark/Nmap)", level: 75 },
-			{ name: "Active Directory", level: 60 },
-			{ name: "Kali Linux / Burp Suite", level: 80 },
-			{ name: "OSINT", level: 70 },
+			{ name: "Analyse de logs & SIEM (Wazuh, Splunk)", level: "project" },
+			{ name: "Réponse à incident (NIST SP 800-61)", level: "learning" },
+			{ name: "Threat Intelligence", level: "learning" },
+			{ name: "Détection d'intrusion (IDS/IPS)", level: "project" },
+		],
+	},
+	{
+		title: "Cybersécurité Offensive / Pentest",
+		titleKey: "skills_domain_offensive",
+		icon: "🎯",
+		skills: [
+			{ name: "Tests d'intrusion web (OWASP Top 10)", level: "client" },
+			{ name: "Reconnaissance & énumération", level: "project" },
+			{ name: "Exploitation (Metasploit, Burp Suite)", level: "learning" },
+			{ name: "CTF (TryHackMe, Root-Me)", level: "practice" },
+		],
+	},
+	{
+		title: "Réseaux & Infrastructure",
+		titleKey: "skills_domain_networks",
+		icon: "🌐",
+		skills: [
+			{ name: "TCP/IP, routage, switching", level: "mastered" },
+			{ name: "Firewall & segmentation VLAN", level: "project" },
+			{ name: "VPN, PKI", level: "learning" },
+			{ name: "Linux / Windows Server", level: "mastered" },
 		],
 	},
 	{
 		title: "Développement",
+		titleKey: "skills_domain_development",
 		icon: "💻",
-		accent: false,
 		skills: [
-			{ name: "Python", level: 80 },
-			{ name: "React / TypeScript", level: 75 },
-			{ name: "Express.js / Node.js", level: 70 },
-			{ name: "PostgreSQL / Prisma", level: 65 },
-			{ name: "Docker", level: 70 },
-			{ name: "API REST", level: 75 },
+			{ name: "Python (scripts sécurité, NLP)", level: "project" },
+			{ name: "JavaScript / TypeScript", level: "production" },
+			{ name: "React + Express + PostgreSQL", level: "production" },
+			{ name: "Astro + Tailwind CSS", level: "production" },
 		],
 	},
 	{
-		title: "Réseaux & Systèmes",
-		icon: "🌐",
-		accent: false,
+		title: "Cloud & IA",
+		titleKey: "skills_domain_cloud_ai",
+		icon: "☁️",
 		skills: [
-			{ name: "TCP/IP, VLAN, VPN", level: 75 },
-			{ name: "Linux (Admin + Bash)", level: 80 },
-			{ name: "pfSense / pare-feu", level: 65 },
-			{ name: "GitLab CI/CD", level: 65 },
-			{ name: "Active Directory", level: 60 },
-			{ name: "pm2 / VPS deployment", level: 70 },
-		],
-	},
-	{
-		title: "IA & Outils",
-		icon: "🤖",
-		accent: false,
-		skills: [
-			{ name: "Claude Code (usage quotidien)", level: 90 },
-			{ name: "Ollama / LLM local (ZEUS-AI)", level: 75 },
-			{ name: "NLP (SmishGuard)", level: 65 },
-			{ name: "GitHub Actions", level: 65 },
-			{ name: "Ansible", level: 55 },
-			{ name: "Splunk (SOC)", level: 60 },
+			{ name: "Cloudflare (CDN, Pages, Headers)", level: "production" },
+			{ name: "Docker", level: "learning" },
+			{ name: "LLM local (Ollama, LangChain)", level: "project" },
+			{ name: "Git / CI-CD", level: "mastered" },
 		],
 	},
 ];
 
-const tools = [
-	"Burp Suite",
-	"Nmap",
-	"Wireshark",
-	"Metasploit",
-	"Nessus",
-	"Splunk",
-	"Ghidra",
-	"Docker",
-	"Git",
-	"VS Code",
-	"Kali Linux",
-	"pfSense",
-];
+const levels = {
+	production: {
+		key: "skills_level_production",
+		label: "Utilisé en production",
+		classes: "border-green-400/20 bg-green-400/10 text-green-300",
+	},
+	client: {
+		key: "skills_level_client",
+		label: "Utilisé en mission client",
+		classes: "border-green-400/20 bg-green-400/10 text-green-300",
+	},
+	project: {
+		key: "skills_level_project",
+		label: "Utilisé en projet",
+		classes: "border-blue-400/20 bg-blue-400/10 text-blue-300",
+	},
+	practice: {
+		key: "skills_level_practice",
+		label: "Pratique régulière",
+		classes: "border-blue-400/20 bg-blue-400/10 text-blue-300",
+	},
+	learning: {
+		key: "skills_level_learning",
+		label: "En apprentissage",
+		classes: "border-gray-600 bg-gray-800 text-gray-300",
+	},
+	mastered: {
+		key: "skills_level_mastered",
+		label: "Maîtrisé",
+		classes: "border-green-400/20 bg-green-400/10 text-green-300",
+	},
+};
 ---
 
 <section
@@ -91,43 +112,32 @@ const tools = [
 
 		<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
 			{
-				categories.map(({ title, icon, accent, skills: categorySkills }) => (
+				categories.map(({ title, titleKey, icon, skills: categorySkills }) => (
 					<article
 						data-skill-card
-						class:list={[
-							"rounded-xl border bg-gray-900 p-5 transition-colors duration-300 hover:border-green-400/40 sm:p-6",
-							accent ? "border-green-400/30" : "border-gray-800",
-						]}
+						class="rounded-xl border border-gray-800 bg-gray-900 p-5 transition-colors duration-300 hover:border-green-400/40 sm:p-6"
 					>
 						<h3 class="mb-6 flex items-center gap-3 text-lg font-semibold text-white">
 							<span aria-hidden="true" class="text-xl">
 								{icon}
 							</span>
-							{title}
+							<span data-i18n={titleKey}>{title}</span>
 						</h3>
 
-						<ul class="space-y-4">
+						<ul class="space-y-3">
 							{
 								categorySkills.map(({ name, level }) => (
-									<li>
-										<div class="mb-2 flex items-center justify-between gap-3 text-sm">
-											<span class="text-gray-300">{name}</span>
-											<span class="shrink-0 text-xs text-gray-500">{level}%</span>
-										</div>
-										<div
-											role="progressbar"
-											aria-label={name}
-											aria-valuemin="0"
-											aria-valuemax="100"
-											aria-valuenow={level}
-											class="h-2 overflow-hidden rounded-full bg-gray-800"
+									<li class="flex items-center justify-between gap-3 border-t border-gray-800/80 pt-3 first:border-0 first:pt-0">
+										<span class="text-sm text-gray-300">{name}</span>
+										<span
+											data-i18n={levels[level].key}
+											class:list={[
+												"shrink-0 rounded-full border px-2.5 py-1 text-right text-xs font-medium",
+												levels[level].classes,
+											]}
 										>
-											<span
-												data-skill-fill
-												style={`--skill-level: ${level}%`}
-												class="skill-fill block h-full rounded-full bg-gradient-to-r from-green-500 to-emerald-400"
-											/>
-										</div>
+											{levels[level].label}
+										</span>
 									</li>
 								))
 							}
@@ -137,20 +147,6 @@ const tools = [
 			}
 		</div>
 
-		<div class="mt-12">
-			<h3 data-i18n="skills_tools" class="mb-4 text-center text-sm font-semibold uppercase tracking-wider text-gray-400">
-				Outils maîtrisés
-			</h3>
-			<ul class="flex flex-wrap justify-center gap-2" aria-label="Outils maîtrisés">
-				{
-					tools.map((tool) => (
-						<li class="rounded-lg border border-gray-700 bg-gray-800 px-3 py-1 text-sm text-gray-300">
-							{tool}
-						</li>
-					))
-				}
-			</ul>
-		</div>
 	</div>
 </section>
 
@@ -178,10 +174,6 @@ const tools = [
 </script>
 
 <style>
-	.skill-fill {
-		width: var(--skill-level);
-	}
-
 	[data-skills-section][data-skills-animate] [data-skill-card] {
 		opacity: 0;
 		transform: translateY(1rem);
@@ -191,30 +183,16 @@ const tools = [
 			border-color 300ms ease-out;
 	}
 
-	[data-skills-section][data-skills-animate] [data-skill-card] .skill-fill {
-		width: 0;
-		transition: width 900ms ease-out;
-	}
-
 	[data-skills-section][data-skills-animate] [data-skill-card].is-visible {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
-	[data-skills-section][data-skills-animate] [data-skill-card].is-visible .skill-fill {
-		width: var(--skill-level);
-	}
-
 	@media (prefers-reduced-motion: reduce) {
-		[data-skills-section][data-skills-animate] [data-skill-card],
-		[data-skills-section][data-skills-animate] [data-skill-card] .skill-fill {
+		[data-skills-section][data-skills-animate] [data-skill-card] {
 			opacity: 1;
 			transform: none;
 			transition: none;
-		}
-
-		[data-skills-section][data-skills-animate] [data-skill-card] .skill-fill {
-			width: var(--skill-level);
 		}
 	}
 </style>
