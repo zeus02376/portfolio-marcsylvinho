@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio-marcsylvinho.pages.dev/sitemap-index.xml

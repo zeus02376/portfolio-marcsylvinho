@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import photoMarc from "../assets/photo-marc.png";
+
 const stats = [
 	{ value: "3+", label: "Années d'expérience", key: "about_stat1" },
 	{ value: "2", label: "Certifications TryHackMe", key: "about_stat2" },
@@ -30,9 +33,15 @@ const skills = [
 			<div
 				class="aspect-square overflow-hidden rounded-3xl border border-green-400/15 shadow-2xl shadow-green-950/20"
 			>
-				<img
-					src="/photo-marc.png"
-					alt="Marc Sylvinho Tsafack Lekeudjio"
+				<Image
+					src={photoMarc}
+					alt="Marc Sylvinho Tsafack — Étudiant Ingénieur Cybersécurité ESAIP Angers"
+					width={400}
+					height={500}
+					format="webp"
+					quality={80}
+					loading="eager"
+					decoding="async"
 					class="w-full h-full object-cover object-top rounded-2xl"
 				/>
 			</div>
