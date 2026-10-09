@@ -40,8 +40,11 @@ export const translations = {
 		projects_label: "Mes projets",
 		projects_title: "Ce que j'ai construit",
 		projects_subtitle: "Projets académiques, professionnels et personnels",
-		projects_anansi_title: "Projets clients — ANANSI",
-		projects_anansi_subtitle: "Développement réalisé pour des clients via ANANSI",
+		projects_anansi_title: "Projets réalisés via ANANSI",
+		projects_anansi_subtitle:
+			"Missions de développement et cybersécurité réalisées dans le cadre du projet ANANSI",
+		projects_anansi_disclaimer:
+			"ANANSI est en cours de structuration officielle — les missions sont réalisées à titre personnel.",
 		projects_cta_title: "Vous avez un projet ? Parlons-en.",
 		projects_cta_subtitle:
 			"Conception d'applications, sites web, tests de sécurité, intégration IA ou renforcement de systèmes — ANANSI vous accompagne de l'idée à la livraison.",
@@ -121,8 +124,11 @@ export const translations = {
 		projects_label: "My projects",
 		projects_title: "What I have built",
 		projects_subtitle: "Academic, professional and personal projects",
-		projects_anansi_title: "Client projects — ANANSI",
-		projects_anansi_subtitle: "Development done for clients via ANANSI",
+		projects_anansi_title: "Projects carried out through ANANSI",
+		projects_anansi_subtitle:
+			"Development and cybersecurity missions carried out as part of the ANANSI project",
+		projects_anansi_disclaimer:
+			"ANANSI is being officially structured — missions are carried out on a personal basis.",
 		projects_cta_title: "Got a project? Let's talk.",
 		projects_cta_subtitle:
 			"App development, websites, security testing, AI integration or system hardening — ANANSI guides you from idea to delivery.",
