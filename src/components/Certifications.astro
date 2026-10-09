@@ -1,11 +1,14 @@
 ---
 const certifications = [
 	{
-		title: "SOC Analyst",
-		issuer: "TryHackMe",
+		title: "SOC Level 1",
+		titleKey: "cert_soc_level1",
+		issuer: "Parcours d'apprentissage · TryHackMe",
+		issuerKey: "cert_learning_path",
 		description:
 			"Détection d'intrusion, analyse de logs, SIEM, investigation d'incidents, blue team",
-		badge: "Certifié",
+		badge: "Parcours complété",
+		badgeKey: "cert_path_complete",
 		accent: "bg-green-400",
 		badgeClass: "bg-green-400/10 text-green-300",
 		icon: "shield",
@@ -13,10 +16,13 @@ const certifications = [
 	},
 	{
 		title: "Jr Penetration Tester",
-		issuer: "TryHackMe",
+		titleKey: "cert_jr_pentester",
+		issuer: "Parcours d'apprentissage · TryHackMe",
+		issuerKey: "cert_learning_path",
 		description:
 			"Méthodologie pentest, exploitation web, post-exploitation, reporting, OWASP Top 10",
-		badge: "Certifié",
+		badge: "Parcours complété",
+		badgeKey: "cert_path_complete",
 		accent: "bg-red-400",
 		badgeClass: "bg-green-400/10 text-green-300",
 		icon: "target",
@@ -24,10 +30,13 @@ const certifications = [
 	},
 	{
 		title: "TOEIC 735 — Niveau B2",
+		titleKey: "",
 		issuer: "ETS Global",
+		issuerKey: "",
 		description:
 			"Anglais professionnel — Communication écrite et orale en milieu professionnel",
 		badge: "B2",
+		badgeKey: "",
 		accent: "bg-blue-400",
 		badgeClass: "bg-blue-400/10 text-blue-300",
 		icon: "toeic",
@@ -35,9 +44,12 @@ const certifications = [
 	},
 	{
 		title: "DELF B2 — Français",
+		titleKey: "",
 		issuer: "Alliance Française / CIEP",
+		issuerKey: "",
 		description: "Diplôme d'études en langue française — Niveau avancé",
 		badge: "B2",
+		badgeKey: "",
 		accent: "bg-sky-300",
 		badgeClass: "bg-blue-400/10 text-blue-300",
 		icon: "delf",
@@ -102,6 +114,7 @@ const education = [
 			<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
 				{
 					certifications.map((certification, index) => (
+						<>
 						<article
 							data-credential-card
 							style={`--reveal-delay: ${index * 100}ms`}
@@ -174,13 +187,17 @@ const education = [
 											certification.badgeClass,
 										]}
 									>
-										{certification.badge}
+										<span data-i18n={certification.badgeKey}>{certification.badge}</span>
 									</span>
 								</div>
 
 								<div class="mt-5 flex flex-1 flex-col">
-									<h4 class="text-lg font-bold text-white">{certification.title}</h4>
-									<p class="mt-1 text-sm font-medium text-gray-300">{certification.issuer}</p>
+									<h4 data-i18n={certification.titleKey} class="text-lg font-bold text-white">
+										{certification.title}
+									</h4>
+									<p data-i18n={certification.issuerKey} class="mt-1 text-sm font-medium text-gray-300">
+										{certification.issuer}
+									</p>
 									<p class="mt-3 flex-1 text-sm leading-6 text-gray-400">
 										{certification.description}
 									</p>
@@ -197,6 +214,15 @@ const education = [
 								</div>
 							</div>
 						</article>
+						{index === 1 && (
+							<p
+								data-i18n="cert_thm_note"
+								class="md:col-span-2 -mt-2 text-center text-xs leading-5 text-gray-500"
+							>
+								Ces parcours valident des compétences pratiques. La certification d'examen SAL1 est l'objectif prochain.
+							</p>
+						)}
+						</>
 					))
 				}
 			</div>
